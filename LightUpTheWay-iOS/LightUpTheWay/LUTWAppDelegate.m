@@ -1,45 +1,122 @@
 //
-//  AppDelegate.m
-//  Light Up The Way
+//  PAWAppDelegate.m
+//  Anywall
 //
-//  Created by Luke Jang on 8/22/15.
-//
+//  Copyright (c) 2014 Parse Inc. All rights reserved.
 //
 
 #import "LUTWAppDelegate.h"
 
+#import <Parse/Parse.h>
+#import <ParseFacebookUtils/PFFacebookUtils.h>
+
+#import "PAWConstants.h"
+#import "PAWConfigManager.h"
+#import "PAWLoginViewController.h"
+#import "PAWSettingsViewController.h"
+#import "PAWWallViewController.h"
+
 @interface LUTWAppDelegate ()
+<PAWLoginViewControllerDelegate,
+PAWWallViewControllerDelegate,
+PAWSettingsViewControllerDelegate>
 
 @end
 
 @implementation LUTWAppDelegate
 
+#pragma mark -
+#pragma mark UIApplicationDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+
+    // ****************************************************************************
+    // Parse initialization
+    [Parse setApplicationId:@"APPLICATION_ID" clientKey:@"CLIENT_KEY"];
+    // ****************************************************************************
+
+    // Set the global tint on the navigation bar
+    [[UINavigationBar appearance] setTintColor:[UIColor colorWithRed:43.0f/255.0f green:181.0f/255.0f blue:46.0f/255.0f alpha:1.0f]];
+
+    // Setup default NSUserDefaults
+    NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+    if ([userDefaults objectForKey:PAWUserDefaultsFilterDistanceKey] == nil) {
+        // If we have no accuracy in defaults, set it to 1000 feet.
+        [userDefaults setDouble:PAWFeetToMeters(PAWDefaultFilterDistance) forKey:PAWUserDefaultsFilterDistanceKey];
+    }
+
+    self.navigationController = [[UINavigationController alloc] initWithRootViewController:[[UIViewController alloc] init]];
+
+    if ([PFUser currentUser]) {
+        // Present wall straight-away
+        [self presentWallViewControllerAnimated:NO];
+    } else {
+        // Go to the welcome screen and have them log in or create an account.
+        [self presentLoginViewController];
+    }
+
+    [PFAnalytics trackAppOpenedWithLaunchOptions:launchOptions];
+
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
+
+	[[PAWConfigManager sharedManager] fetchConfigIfNeeded];
+
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
-    // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
-    // Use this method to pause ongoing tasks, disable timers, and throttle down OpenGL ES frame rates. Games should use this method to pause the game.
-}
-
-- (void)applicationDidEnterBackground:(UIApplication *)application {
-    // Use this method to release shared resources, save user data, invalidate timers, and store enough application state information to restore your application to its current state in case it is terminated later.
-    // If your application supports background execution, this method is called instead of applicationWillTerminate: when the user quits.
-}
-
-- (void)applicationWillEnterForeground:(UIApplication *)application {
-    // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
-}
-
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
-}
-
 - (void)applicationWillTerminate:(UIApplication *)application {
-    // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
+    [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+#pragma mark -
+#pragma mark LoginViewController
+
+- (void)presentLoginViewController {
+    // Go to the welcome screen and have them log in or create an account.
+    PAWLoginViewController *viewController = [[PAWLoginViewController alloc] initWithNibName:nil bundle:nil];
+    viewController.delegate = self;
+    [self.navigationController setViewControllers:@[ viewController ] animated:NO];
+}
+
+#pragma mark Delegate
+
+- (void)loginViewControllerDidLogin:(PAWLoginViewController *)controller {
+    [self presentWallViewControllerAnimated:YES];
+}
+
+#pragma mark -
+#pragma mark WallViewController
+
+- (void)presentWallViewControllerAnimated:(BOOL)animated {
+    PAWWallViewController *wallViewController = [[PAWWallViewController alloc] initWithNibName:nil bundle:nil];
+    wallViewController.delegate = self;
+    [self.navigationController setViewControllers:@[ wallViewController ] animated:animated];
+}
+
+#pragma mark Delegate
+
+- (void)wallViewControllerWantsToPresentSettings:(PAWWallViewController *)controller {
+    [self presentSettingsViewController];
+}
+
+#pragma mark -
+#pragma mark SettingsViewController
+
+- (void)presentSettingsViewController {
+    PAWSettingsViewController *settingsViewController = [[PAWSettingsViewController alloc] initWithNibName:nil bundle:nil];
+    settingsViewController.delegate = self;
+    settingsViewController.modalTransitionStyle = UIModalTransitionStyleFlipHorizontal;
+    [self.navigationController presentViewController:settingsViewController animated:YES completion:nil];
+}
+
+#pragma mark Delegate
+
+- (void)settingsViewControllerDidLogout:(PAWSettingsViewController *)controller {
+    [controller dismissViewControllerAnimated:YES completion:nil];
+    [self presentLoginViewController];
 }
 
 @end

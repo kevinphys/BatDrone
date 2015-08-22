@@ -1,17 +1,16 @@
 //
-//  AppDelegate.h
-//  Light Up The Way
+//  PAWAppDelegate.h
+//  Anywall
 //
-//  Created by Luke Jang on 8/22/15.
-//
+//  Copyright (c) 2014 Parse Inc. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
+#import <CoreLocation/CoreLocation.h>
 
 @interface LUTWAppDelegate : UIResponder <UIApplicationDelegate>
 
-@property (strong, nonatomic) UIWindow *window;
-
+@property (nonatomic, strong) UIWindow *window;
+@property (nonatomic, strong) UINavigationController *navigationController;
 
 @end
-
