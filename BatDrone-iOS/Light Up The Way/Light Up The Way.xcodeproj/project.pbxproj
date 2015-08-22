@@ -1,0 +1,432 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		409E71171B8830540009A36E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71161B8830540009A36E /* main.m */; };
+		409E711A1B8830540009A36E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71191B8830540009A36E /* AppDelegate.m */; };
+		409E711D1B8830540009A36E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E711C1B8830540009A36E /* ViewController.m */; };
+		409E71201B8830540009A36E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409E711E1B8830540009A36E /* Main.storyboard */; };
+		409E71221B8830540009A36E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409E71211B8830540009A36E /* Images.xcassets */; };
+		409E71251B8830540009A36E /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 409E71231B8830540009A36E /* LaunchScreen.xib */; };
+		409E71311B8830540009A36E /* Light_Up_The_WayTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71301B8830540009A36E /* Light_Up_The_WayTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		409E712B1B8830540009A36E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 409E71091B8830540009A36E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 409E71101B8830540009A36E;
+			remoteInfo = "Light Up The Way";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		409E71111B8830540009A36E /* Light Up The Way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Light Up The Way.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409E71151B8830540009A36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		409E71161B8830540009A36E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		409E71181B8830540009A36E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		409E71191B8830540009A36E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		409E711B1B8830540009A36E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		409E711C1B8830540009A36E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		409E711F1B8830540009A36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		409E71211B8830540009A36E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		409E71241B8830540009A36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		409E712A1B8830540009A36E /* Light Up The WayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Light Up The WayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409E712F1B8830540009A36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		409E71301B8830540009A36E /* Light_Up_The_WayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Light_Up_The_WayTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		409E710E1B8830540009A36E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409E71271B8830540009A36E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		409E71081B8830540009A36E = {
+			isa = PBXGroup;
+			children = (
+				409E71131B8830540009A36E /* Light Up The Way */,
+				409E712D1B8830540009A36E /* Light Up The WayTests */,
+				409E71121B8830540009A36E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		409E71121B8830540009A36E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				409E71111B8830540009A36E /* Light Up The Way.app */,
+				409E712A1B8830540009A36E /* Light Up The WayTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		409E71131B8830540009A36E /* Light Up The Way */ = {
+			isa = PBXGroup;
+			children = (
+				409E71181B8830540009A36E /* AppDelegate.h */,
+				409E71191B8830540009A36E /* AppDelegate.m */,
+				409E711B1B8830540009A36E /* ViewController.h */,
+				409E711C1B8830540009A36E /* ViewController.m */,
+				409E711E1B8830540009A36E /* Main.storyboard */,
+				409E71211B8830540009A36E /* Images.xcassets */,
+				409E71231B8830540009A36E /* LaunchScreen.xib */,
+				409E71141B8830540009A36E /* Supporting Files */,
+			);
+			path = "Light Up The Way";
+			sourceTree = "<group>";
+		};
+		409E71141B8830540009A36E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				409E71151B8830540009A36E /* Info.plist */,
+				409E71161B8830540009A36E /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		409E712D1B8830540009A36E /* Light Up The WayTests */ = {
+			isa = PBXGroup;
+			children = (
+				409E71301B8830540009A36E /* Light_Up_The_WayTests.m */,
+				409E712E1B8830540009A36E /* Supporting Files */,
+			);
+			path = "Light Up The WayTests";
+			sourceTree = "<group>";
+		};
+		409E712E1B8830540009A36E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				409E712F1B8830540009A36E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		409E71101B8830540009A36E /* Light Up The Way */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The Way" */;
+			buildPhases = (
+				409E710D1B8830540009A36E /* Sources */,
+				409E710E1B8830540009A36E /* Frameworks */,
+				409E710F1B8830540009A36E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Light Up The Way";
+			productName = "Light Up The Way";
+			productReference = 409E71111B8830540009A36E /* Light Up The Way.app */;
+			productType = "com.apple.product-type.application";
+		};
+		409E71291B8830540009A36E /* Light Up The WayTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The WayTests" */;
+			buildPhases = (
+				409E71261B8830540009A36E /* Sources */,
+				409E71271B8830540009A36E /* Frameworks */,
+				409E71281B8830540009A36E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				409E712C1B8830540009A36E /* PBXTargetDependency */,
+			);
+			name = "Light Up The WayTests";
+			productName = "Light Up The WayTests";
+			productReference = 409E712A1B8830540009A36E /* Light Up The WayTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		409E71091B8830540009A36E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0640;
+				TargetAttributes = {
+					409E71101B8830540009A36E = {
+						CreatedOnToolsVersion = 6.4;
+					};
+					409E71291B8830540009A36E = {
+						CreatedOnToolsVersion = 6.4;
+						TestTargetID = 409E71101B8830540009A36E;
+					};
+				};
+			};
+			buildConfigurationList = 409E710C1B8830540009A36E /* Build configuration list for PBXProject "Light Up The Way" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 409E71081B8830540009A36E;
+			productRefGroup = 409E71121B8830540009A36E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				409E71101B8830540009A36E /* Light Up The Way */,
+				409E71291B8830540009A36E /* Light Up The WayTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		409E710F1B8830540009A36E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409E71201B8830540009A36E /* Main.storyboard in Resources */,
+				409E71251B8830540009A36E /* LaunchScreen.xib in Resources */,
+				409E71221B8830540009A36E /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409E71281B8830540009A36E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		409E710D1B8830540009A36E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409E711D1B8830540009A36E /* ViewController.m in Sources */,
+				409E711A1B8830540009A36E /* AppDelegate.m in Sources */,
+				409E71171B8830540009A36E /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		409E71261B8830540009A36E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				409E71311B8830540009A36E /* Light_Up_The_WayTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		409E712C1B8830540009A36E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 409E71101B8830540009A36E /* Light Up The Way */;
+			targetProxy = 409E712B1B8830540009A36E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		409E711E1B8830540009A36E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409E711F1B8830540009A36E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		409E71231B8830540009A36E /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				409E71241B8830540009A36E /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		409E71321B8830540009A36E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		409E71331B8830540009A36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		409E71351B8830540009A36E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Light Up The Way/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		409E71361B8830540009A36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "Light Up The Way/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		409E71381B8830540009A36E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Light Up The WayTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light Up The Way.app/Light Up The Way";
+			};
+			name = Debug;
+		};
+		409E71391B8830540009A36E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Light Up The WayTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light Up The Way.app/Light Up The Way";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		409E710C1B8830540009A36E /* Build configuration list for PBXProject "Light Up The Way" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409E71321B8830540009A36E /* Debug */,
+				409E71331B8830540009A36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The Way" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409E71351B8830540009A36E /* Debug */,
+				409E71361B8830540009A36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The WayTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				409E71381B8830540009A36E /* Debug */,
+				409E71391B8830540009A36E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 409E71091B8830540009A36E /* Project object */;
+}
