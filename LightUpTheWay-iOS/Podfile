@@ -1,6 +1,6 @@
 source 'https://github.com/CocoaPods/Specs.git'
 
-workspace 'Light Up The Way'
+workspace 'LightUpTheWay'
 
 pod 'Parse'
 pod 'ParseFacebookUtils'

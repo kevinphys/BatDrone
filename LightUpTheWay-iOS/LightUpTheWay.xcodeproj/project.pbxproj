@@ -27,14 +27,14 @@
 
 /* Begin PBXFileReference section */
 		3ABDB8ED29D962A400DE9FA9 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
-		409E71111B8830540009A36E /* Light Up The Way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Light Up The Way.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409E71111B8830540009A36E /* LightUpTheWay.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LightUpTheWay.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		409E71151B8830540009A36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		409E71161B8830540009A36E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		409E71181B8830540009A36E /* LUTWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LUTWAppDelegate.h; sourceTree = "<group>"; };
 		409E71191B8830540009A36E /* LUTWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LUTWAppDelegate.m; sourceTree = "<group>"; };
 		409E71211B8830540009A36E /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		409E71241B8830540009A36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		409E712A1B8830540009A36E /* Light Up The WayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Light Up The WayTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		409E712A1B8830540009A36E /* LightUpTheWayTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LightUpTheWayTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		409E712F1B8830540009A36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		409E71301B8830540009A36E /* Light_Up_The_WayTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Light_Up_The_WayTests.m; sourceTree = "<group>"; };
 		9FF4B76707DC9602BCB59E39 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -71,8 +71,8 @@
 		409E71081B8830540009A36E = {
 			isa = PBXGroup;
 			children = (
-				409E71131B8830540009A36E /* Light Up The Way */,
-				409E712D1B8830540009A36E /* Light Up The WayTests */,
+				409E71131B8830540009A36E /* LightUpTheWay */,
+				409E712D1B8830540009A36E /* LightUpTheWayTests */,
 				409E71121B8830540009A36E /* Products */,
 				D65953EE4E7ADC4F08CB0EBD /* Pods */,
 				260C47837528793124417A96 /* Frameworks */,
@@ -82,13 +82,13 @@
 		409E71121B8830540009A36E /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				409E71111B8830540009A36E /* Light Up The Way.app */,
-				409E712A1B8830540009A36E /* Light Up The WayTests.xctest */,
+				409E71111B8830540009A36E /* LightUpTheWay.app */,
+				409E712A1B8830540009A36E /* LightUpTheWayTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		409E71131B8830540009A36E /* Light Up The Way */ = {
+		409E71131B8830540009A36E /* LightUpTheWay */ = {
 			isa = PBXGroup;
 			children = (
 				409E71211B8830540009A36E /* Images.xcassets */,
@@ -100,7 +100,7 @@
 				409E713B1B8849D20009A36E /* ViewControllers */,
 				409E713C1B8849DC0009A36E /* Views */,
 			);
-			path = "Light Up The Way";
+			path = LightUpTheWay;
 			sourceTree = "<group>";
 		};
 		409E71141B8830540009A36E /* Supporting Files */ = {
@@ -112,13 +112,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		409E712D1B8830540009A36E /* Light Up The WayTests */ = {
+		409E712D1B8830540009A36E /* LightUpTheWayTests */ = {
 			isa = PBXGroup;
 			children = (
 				409E71301B8830540009A36E /* Light_Up_The_WayTests.m */,
 				409E712E1B8830540009A36E /* Supporting Files */,
 			);
-			path = "Light Up The WayTests";
+			path = LightUpTheWayTests;
 			sourceTree = "<group>";
 		};
 		409E712E1B8830540009A36E /* Supporting Files */ = {
@@ -162,9 +162,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		409E71101B8830540009A36E /* Light Up The Way */ = {
+		409E71101B8830540009A36E /* LightUpTheWay */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The Way" */;
+			buildConfigurationList = 409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "LightUpTheWay" */;
 			buildPhases = (
 				EBEE2FB294C9B715A9F346FC /* Check Pods Manifest.lock */,
 				409E710D1B8830540009A36E /* Sources */,
@@ -176,14 +176,14 @@
 			);
 			dependencies = (
 			);
-			name = "Light Up The Way";
+			name = LightUpTheWay;
 			productName = "Light Up The Way";
-			productReference = 409E71111B8830540009A36E /* Light Up The Way.app */;
+			productReference = 409E71111B8830540009A36E /* LightUpTheWay.app */;
 			productType = "com.apple.product-type.application";
 		};
-		409E71291B8830540009A36E /* Light Up The WayTests */ = {
+		409E71291B8830540009A36E /* LightUpTheWayTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The WayTests" */;
+			buildConfigurationList = 409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "LightUpTheWayTests" */;
 			buildPhases = (
 				409E71261B8830540009A36E /* Sources */,
 				409E71271B8830540009A36E /* Frameworks */,
@@ -194,9 +194,9 @@
 			dependencies = (
 				409E712C1B8830540009A36E /* PBXTargetDependency */,
 			);
-			name = "Light Up The WayTests";
+			name = LightUpTheWayTests;
 			productName = "Light Up The WayTests";
-			productReference = 409E712A1B8830540009A36E /* Light Up The WayTests.xctest */;
+			productReference = 409E712A1B8830540009A36E /* LightUpTheWayTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -217,7 +217,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 409E710C1B8830540009A36E /* Build configuration list for PBXProject "Light Up The Way" */;
+			buildConfigurationList = 409E710C1B8830540009A36E /* Build configuration list for PBXProject "LightUpTheWay" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -230,8 +230,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				409E71101B8830540009A36E /* Light Up The Way */,
-				409E71291B8830540009A36E /* Light Up The WayTests */,
+				409E71101B8830540009A36E /* LightUpTheWay */,
+				409E71291B8830540009A36E /* LightUpTheWayTests */,
 			);
 		};
 /* End PBXProject section */
@@ -311,7 +311,7 @@
 /* Begin PBXTargetDependency section */
 		409E712C1B8830540009A36E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 409E71101B8830540009A36E /* Light Up The Way */;
+			target = 409E71101B8830540009A36E /* LightUpTheWay */;
 			targetProxy = 409E712B1B8830540009A36E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -418,7 +418,7 @@
 				INFOPLIST_FILE = "Light Up The Way/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LightUpTheWay;
 			};
 			name = Debug;
 		};
@@ -430,7 +430,7 @@
 				INFOPLIST_FILE = "Light Up The Way/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LightUpTheWay;
 			};
 			name = Release;
 		};
@@ -448,7 +448,7 @@
 				);
 				INFOPLIST_FILE = "Light Up The WayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LightUpTheWayTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light Up The Way.app/Light Up The Way";
 			};
 			name = Debug;
@@ -463,7 +463,7 @@
 				);
 				INFOPLIST_FILE = "Light Up The WayTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = LightUpTheWayTests;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Light Up The Way.app/Light Up The Way";
 			};
 			name = Release;
@@ -471,7 +471,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		409E710C1B8830540009A36E /* Build configuration list for PBXProject "Light Up The Way" */ = {
+		409E710C1B8830540009A36E /* Build configuration list for PBXProject "LightUpTheWay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				409E71321B8830540009A36E /* Debug */,
@@ -480,7 +480,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The Way" */ = {
+		409E71341B8830540009A36E /* Build configuration list for PBXNativeTarget "LightUpTheWay" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				409E71351B8830540009A36E /* Debug */,
@@ -489,7 +489,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "Light Up The WayTests" */ = {
+		409E71371B8830540009A36E /* Build configuration list for PBXNativeTarget "LightUpTheWayTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				409E71381B8830540009A36E /* Debug */,
