@@ -6,13 +6,13 @@
 //
 //
 
-#import "AppDelegate.h"
+#import "LUTWAppDelegate.h"
 
-@interface AppDelegate ()
+@interface LUTWAppDelegate ()
 
 @end
 
-@implementation AppDelegate
+@implementation LUTWAppDelegate
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {

@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		409E71171B8830540009A36E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71161B8830540009A36E /* main.m */; };
-		409E711A1B8830540009A36E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71191B8830540009A36E /* AppDelegate.m */; };
+		409E711A1B8830540009A36E /* LUTWAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E71191B8830540009A36E /* LUTWAppDelegate.m */; };
 		409E711D1B8830540009A36E /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 409E711C1B8830540009A36E /* ViewController.m */; };
 		409E71201B8830540009A36E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 409E711E1B8830540009A36E /* Main.storyboard */; };
 		409E71221B8830540009A36E /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 409E71211B8830540009A36E /* Images.xcassets */; };
@@ -32,8 +32,8 @@
 		409E71111B8830540009A36E /* Light Up The Way.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Light Up The Way.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		409E71151B8830540009A36E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		409E71161B8830540009A36E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		409E71181B8830540009A36E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		409E71191B8830540009A36E /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		409E71181B8830540009A36E /* LUTWAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LUTWAppDelegate.h; sourceTree = "<group>"; };
+		409E71191B8830540009A36E /* LUTWAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LUTWAppDelegate.m; sourceTree = "<group>"; };
 		409E711B1B8830540009A36E /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		409E711C1B8830540009A36E /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		409E711F1B8830540009A36E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -96,14 +96,17 @@
 		409E71131B8830540009A36E /* Light Up The Way */ = {
 			isa = PBXGroup;
 			children = (
-				409E71181B8830540009A36E /* AppDelegate.h */,
-				409E71191B8830540009A36E /* AppDelegate.m */,
-				409E711B1B8830540009A36E /* ViewController.h */,
-				409E711C1B8830540009A36E /* ViewController.m */,
-				409E711E1B8830540009A36E /* Main.storyboard */,
 				409E71211B8830540009A36E /* Images.xcassets */,
 				409E71231B8830540009A36E /* LaunchScreen.xib */,
+				409E71181B8830540009A36E /* LUTWAppDelegate.h */,
+				409E71191B8830540009A36E /* LUTWAppDelegate.m */,
+				409E711E1B8830540009A36E /* Main.storyboard */,
+				409E713A1B8849C50009A36E /* Models */,
 				409E71141B8830540009A36E /* Supporting Files */,
+				409E711B1B8830540009A36E /* ViewController.h */,
+				409E711C1B8830540009A36E /* ViewController.m */,
+				409E713B1B8849D20009A36E /* ViewControllers */,
+				409E713C1B8849DC0009A36E /* Views */,
 			);
 			path = "Light Up The Way";
 			sourceTree = "<group>";
@@ -132,6 +135,27 @@
 				409E712F1B8830540009A36E /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		409E713A1B8849C50009A36E /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		409E713B1B8849D20009A36E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = ViewControllers;
+			sourceTree = "<group>";
+		};
+		409E713C1B8849DC0009A36E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		D65953EE4E7ADC4F08CB0EBD /* Pods */ = {
@@ -189,6 +213,7 @@
 		409E71091B8830540009A36E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = LUTW;
 				LastUpgradeCheck = 0640;
 				TargetAttributes = {
 					409E71101B8830540009A36E = {
@@ -278,7 +303,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				409E711D1B8830540009A36E /* ViewController.m in Sources */,
-				409E711A1B8830540009A36E /* AppDelegate.m in Sources */,
+				409E711A1B8830540009A36E /* LUTWAppDelegate.m in Sources */,
 				409E71171B8830540009A36E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
