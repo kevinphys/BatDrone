@@ -1,0 +1,14 @@
+{
+  "global": {
+    "parseVersion": "1.5.0"
+  },
+  "applications": {
+    "Bat Drone": {
+      "applicationId": "NVvy7CLhZmKpqQdDvk6pVRSidDQvZA4sbbh9wqTx",
+      "masterKey": "auVvLRLxM71PoRgYvdDW5dihJC1nxnxS9bFntM1M"
+    },
+    "_default": {
+      "link": "Bat Drone"
+    }
+  }
+}
