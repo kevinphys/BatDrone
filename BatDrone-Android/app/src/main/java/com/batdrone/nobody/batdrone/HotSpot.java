@@ -9,14 +9,14 @@ import com.parse.ParseUser;
 /**
  * Data model for a post.
  */
-@ParseClassName("Posts")
-public class AnywallPost extends ParseObject {
+@ParseClassName("Spots")
+public class HotSpot extends ParseObject {
     public String getText() {
-        return getString("text");
+        return getString("address");
     }
 
     public void setText(String value) {
-        put("text", value);
+        put("address", value);
     }
 
     public ParseUser getUser() {
@@ -35,7 +35,7 @@ public class AnywallPost extends ParseObject {
         put("location", value);
     }
 
-    public static ParseQuery<AnywallPost> getQuery() {
-        return ParseQuery.getQuery(AnywallPost.class);
+    public static ParseQuery<HotSpot> getQuery() {
+        return ParseQuery.getQuery(HotSpot.class);
     }
 }
