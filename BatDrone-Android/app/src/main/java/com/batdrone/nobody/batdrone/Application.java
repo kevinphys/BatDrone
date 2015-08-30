@@ -13,9 +13,6 @@ public class Application extends android.app.Application {
     // Debugging tag for the application
     public static final String APPTAG = "AnyWall";
 
-    // Used to pass location from MainActivity to PostActivity
-    public static final String INTENT_EXTRA_LOCATION = "location";
-
     // Key for saving the search distance preference
     private static final String KEY_SEARCH_DISTANCE = "searchDistance";
 
@@ -32,8 +29,8 @@ public class Application extends android.app.Application {
     public void onCreate() {
         super.onCreate();
 
-        ParseObject.registerSubclass(AnywallPost.class);
-        Parse.initialize(this, "YOUR_APPLICATION_ID", "YOUR_CLIENT_KEY");
+        ParseObject.registerSubclass(HotSpot.class);
+        Parse.initialize(this, "PAID", "PCK"); // Your Application ID and Client Key are defined elsewhere
 
         preferences = getSharedPreferences("com.batdrone.nobody.batdrone", Context.MODE_PRIVATE);
 

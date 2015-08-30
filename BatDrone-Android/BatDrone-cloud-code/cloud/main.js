@@ -1,4 +1,5 @@
-var addressInChinese = "台北市羅斯福路四段1號";
+//var addressInChinese = "台北市羅斯福路四段1號";
+var addressInChinese = "";
 
 
 function getAddress(){
@@ -15,7 +16,8 @@ function getAddress(){
             var promises = [];
             for (i=0; i<count; i++) {
                 var addressInChinese = _response.result.results[i].District + _response.result.results[i].Location;
-                promises.push(getGeoCodingAndSave(addressInChinese));
+                var district = _response.result.results[i].District;
+                promises.push(getGeoCodingAndSave(addressInChinese, district));
             }
             Parse.Promise.when(promises).then(function(results) {
                 //response.success("Promises httpResponse successs");
@@ -29,13 +31,13 @@ function getAddress(){
 }
 
 
-function getGeoCodingAndSave(addressInChinese) {
+function getGeoCodingAndSave(addressInChinese, district) {
     return Parse.Cloud.httpRequest({
         method: "POST",
         url: 'https://maps.googleapis.com/maps/api/geocode/json',
         params: {
             address : addressInChinese,
-            key:"AIzaSyBa9L6OKDlBjNX2moZiR8hYNQesNwdPP0w"
+            key:"YOUR_GOOGLE_GEOCODING_API_KEY"
         },
         success: function(httpResponse) {
             var response = httpResponse.data;
@@ -47,10 +49,11 @@ function getGeoCodingAndSave(addressInChinese) {
                 var Spots = Parse.Object.extend("Spots");
                 //var spotsQuery = new Parse.Query("Spots");
                 //spotsQuery.equalTo();
-
+2
                 var object = new Spots();
                 //object.set("location", point);
                 object.set("location", point);
+                object.set("district", district)
                 object.set("address", addressInChinese);
                 object.save(null, {
                     success: function(object) {

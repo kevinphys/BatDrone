@@ -19,12 +19,12 @@ public class HotSpot extends ParseObject {
         put("address", value);
     }
 
-    public ParseUser getUser() {
-        return getParseUser("user");
+    public String getDistrict() {
+        return getString("district");
     }
 
-    public void setUser(ParseUser value) {
-        put("user", value);
+    public void setDistrict(String value) {
+        put("district", value);
     }
 
     public ParseGeoPoint getLocation() {

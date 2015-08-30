@@ -20,14 +20,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.MenuItem.OnMenuItemClickListener;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.location.LocationServices;
@@ -101,10 +98,10 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
     private static final float OFFSET_CALCULATION_ACCURACY = 0.01f;
 
     // Maximum results returned from a Parse query
-    private static final int MAX_POST_SEARCH_RESULTS = 20;
+    private static final int MAX_SPOT_SEARCH_RESULTS = 20;
 
-    // Maximum post search radius for map in kilometers
-    private static final int MAX_POST_SEARCH_DISTANCE = 100;
+    // Maximum spot search radius for map in kilometers
+    private static final int MAX_SPOT_SEARCH_DISTANCE = 5;
 
     /*
      * Other class member variables
@@ -123,7 +120,7 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
     private final Map<String, Marker> mapMarkers = new HashMap<String, Marker>();
     private int mostRecentMapUpdate;
     private boolean hasSetUpInitialLocation;
-    private String selectedPostObjectId;
+    private String selectedSpotObjectId;
     private Location lastLocation;
     private Location currentLocation;
 
@@ -134,7 +131,7 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
     private GoogleApiClient locationClient;
 
     // Adapter for the Parse query
-    private ParseQueryAdapter<AnywallPost> postsQueryAdapter;
+    private ParseQueryAdapter<HotSpot> spotsQueryAdapter;
 
     private GoogleMap mMap; // Might be null if Google Play services APK is not available.
 
@@ -165,50 +162,47 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
                 .build();
 
         // Set up a customized query
-        ParseQueryAdapter.QueryFactory<AnywallPost> factory =
-                new ParseQueryAdapter.QueryFactory<AnywallPost>() {
-                    public ParseQuery<AnywallPost> create() {
+        ParseQueryAdapter.QueryFactory<HotSpot> factory =
+                new ParseQueryAdapter.QueryFactory<HotSpot>() {
+                    public ParseQuery<HotSpot> create() {
                         Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
-                        ParseQuery<AnywallPost> query = AnywallPost.getQuery();
-                        query.include("user");
+                        ParseQuery<HotSpot> query = HotSpot.getQuery();
                         query.orderByDescending("createdAt");
                         query.whereWithinKilometers("location", geoPointFromLocation(myLoc), radius
                                 * METERS_PER_FEET / METERS_PER_KILOMETER);
-                        query.setLimit(MAX_POST_SEARCH_RESULTS);
+                        query.setLimit(MAX_SPOT_SEARCH_RESULTS);
                         return query;
                     }
                 };
 
         // Set up the query adapter
-        postsQueryAdapter = new ParseQueryAdapter<AnywallPost>(this, factory) {
+        spotsQueryAdapter = new ParseQueryAdapter<HotSpot>(this, factory) {
             @Override
-            public View getItemView(AnywallPost post, View view, ViewGroup parent) {
+            public View getItemView(HotSpot spot, View view, ViewGroup parent) {
                 if (view == null) {
-                    view = View.inflate(getContext(), R.layout.anywall_post_item, null);
+                    view = View.inflate(getContext(), R.layout.anywall_spot_item, null);
                 }
                 TextView contentView = (TextView) view.findViewById(R.id.content_view);
-                TextView usernameView = (TextView) view.findViewById(R.id.username_view);
-                contentView.setText(post.getText());
-                usernameView.setText(post.getUser().getUsername());
+                contentView.setText(spot.getText());
                 return view;
             }
         };
 
         // Disable automatic loading when the adapter is attached to a view.
-        postsQueryAdapter.setAutoload(false);
+        spotsQueryAdapter.setAutoload(false);
 
         // Disable pagination, we'll manage the query limit ourselves
-        postsQueryAdapter.setPaginationEnabled(false);
+        spotsQueryAdapter.setPaginationEnabled(false);
 
         // Attach the query adapter to the view
-        ListView postsListView = (ListView) findViewById(R.id.posts_listview);
-        postsListView.setAdapter(postsQueryAdapter);
+        ListView spotsListView = (ListView) findViewById(R.id.spots_listview);
+        spotsListView.setAdapter(spotsQueryAdapter);
 
         // Set up the handler for an item's selection
-        postsListView.setOnItemClickListener(new OnItemClickListener() {
+        spotsListView.setOnItemClickListener(new OnItemClickListener() {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                final AnywallPost item = postsQueryAdapter.getItem(position);
-                selectedPostObjectId = item.getObjectId();
+                final HotSpot item = spotsQueryAdapter.getItem(position);
+                selectedSpotObjectId = item.getObjectId();
                 mapFragment.getMap().animateCamera(
                         CameraUpdateFactory.newLatLng(new LatLng(item.getLocation().getLatitude(), item
                                 .getLocation().getLongitude())), new CancelableCallback() {
@@ -238,24 +232,6 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
             public void onCameraChange(CameraPosition position) {
                 // When the camera changes, update the query
                 doMapQuery();
-            }
-        });
-
-        // Set up the handler for the post button click
-        Button postButton = (Button) findViewById(R.id.post_button);
-        postButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                // Only allow posts if we have a location
-                Location myLoc = (currentLocation == null) ? lastLocation : currentLocation;
-                if (myLoc == null) {
-                    Toast.makeText(BatDroneMainActivity.this,
-                            "Please try again after your location appears on the map.", Toast.LENGTH_LONG).show();
-                    return;
-                }
-
-                Intent intent = new Intent(BatDroneMainActivity.this, PostActivity.class);
-                intent.putExtra(Application.INTENT_EXTRA_LOCATION, myLoc);
-                startActivity(intent);
             }
         });
     }
@@ -502,7 +478,7 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
         if (myLoc != null) {
             // Refreshes the list view with new data based
             // usually on updated location data.
-            postsQueryAdapter.loadObjects();
+            spotsQueryAdapter.loadObjects();
         }
     }
 
@@ -519,19 +495,19 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
         }
         final ParseGeoPoint myPoint = geoPointFromLocation(myLoc);
         // Create the map Parse query
-        ParseQuery<AnywallPost> mapQuery = AnywallPost.getQuery();
+        ParseQuery<HotSpot> mapQuery = HotSpot.getQuery();
         // Set up additional query filters
-        mapQuery.whereWithinKilometers("location", myPoint, MAX_POST_SEARCH_DISTANCE);
+        mapQuery.whereWithinKilometers("location", myPoint, MAX_SPOT_SEARCH_DISTANCE);
         mapQuery.include("user");
         mapQuery.orderByDescending("createdAt");
-        mapQuery.setLimit(MAX_POST_SEARCH_RESULTS);
+        mapQuery.setLimit(MAX_SPOT_SEARCH_RESULTS);
         // Kick off the query in the background
-        mapQuery.findInBackground(new FindCallback<AnywallPost>() {
+        mapQuery.findInBackground(new FindCallback<HotSpot>() {
             @Override
-            public void done(List<AnywallPost> objects, ParseException e) {
+            public void done(List<HotSpot> objects, ParseException e) {
                 if (e != null) {
                     if (Application.APPDEBUG) {
-                        Log.d(Application.APPTAG, "An error occurred while querying for map posts.", e);
+                        Log.d(Application.APPTAG, "An error occurred while querying for map spots.", e);
                     }
                     return;
                 }
@@ -543,20 +519,20 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
                 if (myUpdateNumber != mostRecentMapUpdate) {
                     return;
                 }
-                // Posts to show on the map
+                // Spots to show on the map
                 Set<String> toKeep = new HashSet<String>();
                 // Loop through the results of the search
-                for (AnywallPost post : objects) {
-                    // Add this post to the list of map pins to keep
-                    toKeep.add(post.getObjectId());
-                    // Check for an existing marker for this post
-                    Marker oldMarker = mapMarkers.get(post.getObjectId());
+                for (HotSpot spot : objects) {
+                    // Add this spot to the list of map pins to keep
+                    toKeep.add(spot.getObjectId());
+                    // Check for an existing marker for this spot
+                    Marker oldMarker = mapMarkers.get(spot.getObjectId());
                     // Set up the map marker's location
                     MarkerOptions markerOpts =
-                            new MarkerOptions().position(new LatLng(post.getLocation().getLatitude(), post
+                            new MarkerOptions().position(new LatLng(spot.getLocation().getLatitude(), spot
                                     .getLocation().getLongitude()));
                     // Set up the marker properties based on if it is within the search radius
-                    if (post.getLocation().distanceInKilometersTo(myPoint) > radius * METERS_PER_FEET
+                    if (spot.getLocation().distanceInKilometersTo(myPoint) > radius * METERS_PER_FEET
                             / METERS_PER_KILOMETER) {
                         // Check for an existing out of range marker
                         if (oldMarker != null) {
@@ -570,7 +546,7 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
                         }
                         // Display a red marker with a predefined title and no snippet
                         markerOpts =
-                                markerOpts.title(getResources().getString(R.string.post_out_of_range)).icon(
+                                markerOpts.title(getResources().getString(R.string.spot_out_of_range)).icon(
                                         BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_RED));
                     } else {
                         // Check for an existing in range marker
@@ -583,17 +559,17 @@ public class BatDroneMainActivity extends FragmentActivity implements LocationLi
                                 oldMarker.remove();
                             }
                         }
-                        // Display a green marker with the post information
+                        // Display a green marker with the spot information
                         markerOpts =
-                                markerOpts.title(post.getText()).snippet(post.getUser().getUsername())
-                                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
+                                markerOpts.title(spot.getText()).
+                                        icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN));
                     }
                     // Add a new marker
                     Marker marker = mapFragment.getMap().addMarker(markerOpts);
-                    mapMarkers.put(post.getObjectId(), marker);
-                    if (post.getObjectId().equals(selectedPostObjectId)) {
+                    mapMarkers.put(spot.getObjectId(), marker);
+                    if (spot.getObjectId().equals(selectedSpotObjectId)) {
                         marker.showInfoWindow();
-                        selectedPostObjectId = null;
+                        selectedSpotObjectId = null;
                     }
                 }
                 // Clean up old markers.
